@@ -1,0 +1,131 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #9fb8cf;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  color: #fff;
+}
+
+#app, #app canvas { position: fixed; inset: 0; display: block; }
+
+/* ---------- glass panels ---------- */
+#title, #tour, #info, #attribution {
+  position: fixed;
+  z-index: 10;
+  background: rgba(15, 22, 34, 0.55);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+#title {
+  top: 20px;
+  left: 20px;
+  padding: 14px 20px;
+  border-radius: 14px;
+}
+#title h1 { font-size: 20px; font-weight: 650; letter-spacing: 0.2px; }
+#title p { font-size: 12px; opacity: 0.7; margin-top: 4px; }
+
+#tour {
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+  max-width: calc(100vw - 24px);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+#tour button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 550;
+  padding: 9px 15px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+#tour button:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+#tour button.active { background: #fff; color: #111a27; }
+
+#info {
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  transition: opacity 0.35s, transform 0.35s;
+}
+#info.hidden { opacity: 0; transform: translateY(-8px); pointer-events: none; }
+#info h2 { font-size: 16px; font-weight: 650; margin-bottom: 6px; }
+#info p { font-size: 13px; line-height: 1.5; opacity: 0.85; }
+
+#attribution {
+  right: 10px;
+  bottom: 10px;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  opacity: 0.8;
+}
+#attribution a { color: #cfe3ff; }
+
+/* ---------- 3D labels ---------- */
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(15, 22, 34, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  white-space: nowrap;
+  pointer-events: auto;
+  cursor: pointer;
+  transform: translateY(-14px);
+  transition: background 0.2s;
+}
+.label::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -14px;
+  width: 1px;
+  height: 13px;
+  background: rgba(255, 255, 255, 0.7);
+}
+.label:hover { background: rgba(15, 22, 34, 0.9); }
+
+/* ---------- loader ---------- */
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg, #1b2a40 0%, #3d5a7a 100%);
+  transition: opacity 0.8s;
+}
+#loader.done { opacity: 0; pointer-events: none; }
+.loader-inner { text-align: center; width: 260px; }
+.loader-title { font-size: 22px; font-weight: 650; margin-bottom: 18px; }
+.loader-bar { height: 4px; background: rgba(255, 255, 255, 0.15); border-radius: 4px; overflow: hidden; }
+#loader-fill { display: block; height: 100%; width: 0; background: #fff; transition: width 0.3s; }
+#loader-text { margin-top: 10px; font-size: 12px; opacity: 0.7; }
+
+@media (max-width: 640px) {
+  #info { left: 12px; right: 12px; width: auto; top: auto; bottom: 80px; }
+  #title { top: 12px; left: 12px; }
+}

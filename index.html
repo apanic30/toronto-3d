@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Downtown Toronto Abraham</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <div id="loader">
+      <div class="loader-inner">
+        <div class="loader-title">Downtown Toronto</div>
+        <div class="loader-bar"><span id="loader-fill"></span></div>
+        <div id="loader-text">Loading city…</div>
+      </div>
+    </div>
+
+    <header id="title">
+      <h1>Downtown Toronto</h1>
+      <p id="subtitle">Drag to orbit · Scroll to zoom · Right-drag to pan</p>
+    </header>
+
+    <nav id="tour"></nav>
+
+    <aside id="info" class="hidden">
+      <h2 id="info-title"></h2>
+      <p id="info-body"></p>
+    </aside>
+
+    <footer id="attribution">
+      Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

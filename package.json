@@ -1,0 +1,19 @@
+{
+  "name": "toronto-3d",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "fetch-data": "node scripts/fetch-osm.mjs"
+  },
+  "dependencies": {
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "polygon-clipping": "^0.15.7",
+    "vite": "^8.3.8"
+  }
+}
